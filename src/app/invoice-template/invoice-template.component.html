@@ -1,0 +1,367 @@
+<div class="invoice-container">
+    <img id="qr-code" crossorigin="Anonymous" [src]="qrCodeSource" />
+    <img id="logo" crossorigin="Anonymous" src="/assets/logo.png" />
+
+    <div id="Book1_4525" align="center" x:publishsource="Excel">
+        <table cellpadding="0" cellspacing="0" style="border-collapse: collapse; width: min-content">
+            <tr height="21" style="height: 16pt">
+                <td height="21" class="xl64" width="87" style="height: 16pt; width: 65pt"></td>
+                <td *ngFor="let row of [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]" class="xl65" width="87" style="width: 65pt">
+                </td>
+            </tr>
+            <tr height="31" style="height: 23pt">
+                <td height="31" class="xl66" style="height: 23pt"></td>
+                <td *ngFor="let row of [1,1,1]" class="xl65"></td>
+                <td colspan="10" class="xl67" dir="RTL">فاتورة ضريبية</td>
+                <td *ngFor="let row of [1,1]" class="xl65"></td>
+            </tr>
+            <tr height="31" style="height: 23pt">
+                <td height="31" class="xl65" style="height: 23pt"></td>
+                <td *ngFor="let row of [1,1,1]" class="xl65"></td>
+                <td colspan="10" class="xl67" dir="RTL">Tax Invoice</td>
+                <td *ngFor="let row of [1,1]" class="xl65"></td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td height="21" class="xl68" style="height: 16pt">1</td>
+                <td *ngFor="let row of [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]" class="xl65"></td>
+            </tr>
+            <tr height="24" style="height: 18pt">
+                <td height="24" class="xl69" align="left" style="height: 18pt">
+                    Invoice No:<span style="display: none">:<span>                </span></span>
+                </td>
+                <td colspan="7" class="xl70" width="609" style="width: 455pt">
+                    {{ rowData?.invNumber }}
+                </td>
+
+                <td colspan="7" class="xl69"></td>
+                <td colspan="5" class="d-flex align-items-center justify-content-between">
+                    <span class="xl72">Date:</span>
+                    <span class="xl73">{{ rowData?.transDate | date: "dd-MMM-y" }}</span>
+                    <span class="xl69" dir="RTL">التاريخ:</span>
+                </td>
+                <!-- <td class="xl72"></td>
+            <td class="xl73">#N/A</td>
+            <td class="xl69" dir="RTL" align="right">التاريخ:</td> -->
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td height="21" class="xl71" style="height: 16pt"></td>
+                <td *ngFor="let row of [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]" class="xl71"></td>
+            </tr>
+            <tr height="24" style="height: 18pt">
+                <td colspan="4" height="24" class="xl72 text-left" style="height: 18pt">
+                    Due From Mr./Mrs.:
+                </td>
+                <td colspan="10" class="xl74">{{ rowData?.tradeName }}</td>
+                <td colspan="4" class="xl72 text-right" dir="RTL">
+                    المطلوب من السيد / السادة:<span> </span>
+                </td>
+            </tr>
+            <tr height="24" style="height: 18pt">
+                <td colspan="4" height="24" class="xl72 text-left" style="height: 18pt">
+                    TRN:
+                </td>
+                <td colspan="10" class="xl74">{{ rowData?.trn }}</td>
+                <td colspan="4" class="xl72 text-right" dir="RTL">
+                    رقم التسجيل الضريبي:
+                </td>
+            </tr>
+            <tr height="23" style="height: 17pt">
+                <td height="23" class="xl71" style="height: 17pt"></td>
+                <td *ngFor="let row of [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]" class="xl71"></td>
+            </tr>
+            <tr>
+                <td colspan="16">
+                    <table>
+                        <tr height="24" style="height: 18pt">
+                            <td colspan="10" height="24" class="xl75">Description</td>
+                            <td style="min-width: 10rem;" colspan="2" class="xl78" dir="RTL">Item Amount</td>
+                            <td colspan="2" class="xl79" dir="RTL" style="min-width: 10rem;border-left: none">
+                                VAT 15%
+                            </td>
+                            <td colspan="2" class="xl81" dir="RTL"
+                                style="min-width: 10rem;border-right: 1pt solid black">
+                                Total Amount
+                            </td>
+                        </tr>
+                        <tr height="25" style="height: 19pt">
+                            <td colspan="10" height="25" class="xl83" dir="RTL" width="870"
+                                style="height: 19pt; width: 650pt">
+                                الوصف
+                            </td>
+                            <td colspan="2" class="xl86" dir="RTL">القـــــــــيمة</td>
+                            <td colspan="2" class="xl87" dir="RTL" style="border-left: none">
+                                الضريبة 15%
+                            </td>
+                            <td colspan="2" class="xl86" dir="RTL" style="border-right: 1pt solid black">
+                                المبلغ الإجمــــالي
+                            </td>
+                        </tr>
+                        <tr height="21" style="height: 16pt">
+                            <td colspan="10" height="21" class="xl90" style="height: 16pt">
+                                &nbsp;
+                            </td>
+                            <td colspan="2" class="xl93">&nbsp;</td>
+                            <td colspan="2" class="xl94" style="border-left: none">&nbsp;</td>
+                            <td colspan="2" class="xl93" style="border-right: 1pt solid black">
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr height="21" style="height: 16pt">
+                            <td colspan="10" height="21" class="xl97" style="height: 16pt">
+                                {{ rowData?.description }}
+                            </td>
+                            <td colspan="2" class="xl97">
+                                {{ rowData?.commissionRevenue | number: "1.2-2":"en-US" }}
+                            </td>
+                            <td colspan="2" class="xl98" style="border-left: none">
+                                {{ rowData?.vat | number: "1.2-2":"en-US" }}
+                            </td>
+                            <td colspan="2" class="xl97" style="border-right: 1pt solid black">
+                                {{ rowData?.totalDue | number: "1.2-2":"en-US" }}
+                            </td>
+                        </tr>
+                        <tr *ngFor="let row of [1, 1, 1, 1, 1, 1,1]" height="21" style="height: 16pt">
+                            <td colspan="10" height="21" class="xl97" style="height: 16pt">
+                                &nbsp;
+                            </td>
+                            <td colspan="2" class="xl97">&nbsp;</td>
+                            <td colspan="2" class="xl98" style="border-left: none">&nbsp;</td>
+                            <td colspan="2" class="xl97" style="border-right: 1pt solid black">
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr height="23" style="height: 17pt">
+                            <td colspan="10" height="23" class="xl104" style="height: 17pt">
+                                &nbsp;
+                            </td>
+                            <td colspan="2" class="xl107">&nbsp;</td>
+                            <td colspan="2" class="xl108" style="border-left: none">&nbsp;</td>
+                            <td colspan="2" class="xl107" style="border-right: 1pt solid black">
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr height="23" style="height: 17pt">
+                            <td height="23" class="xl111" style="height: 17pt"></td>
+                            <td *ngFor="let row of [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]" class="xl111"></td>
+                        </tr>
+                        <tr height="23" style="height: 17pt">
+                            <td colspan="10" height="23" class="xl112" style="height: 17pt">
+                                Total
+                            </td>
+                            <td colspan="2" class="xl114" style="border-right: 0.5pt solid black; border-left: none">
+                                {{ rowData?.commissionRevenue | number: "1.2-2":"en-US" }}
+                            </td>
+                            <td colspan="2" class="xl116">
+                                {{ rowData?.vat | number: "1.2-2":"en-US" }}
+                            </td>
+                            <td colspan="2" class="xl117" style="border-right: 1pt solid black; border-left: none">
+                                {{ rowData?.totalDue | number: "1.2-2":"en-US" }}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td height="21" class="xl71" style="height: 16pt"></td>
+                <td *ngFor="let row of [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]" class="xl71"></td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td colspan="4" height="21" class="xl120" style="height: 16pt">
+                    Except for: Omission &amp; Error
+                </td>
+                <td *ngFor="let row of [1,1,1,1,1,1,1,1]" class="xl71"></td>
+
+                <td colspan="4" class="xl121" dir="RTL">
+                    ماعدا السهو والخطأ:<span
+                        style="mso-spacerun: yes">                                                                                                                                      </span>
+                </td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td height="21" class="xl71" style="height: 16pt"></td>
+                <td class="xl71"></td>
+                <td class="xl71"></td>
+                <td class="xl71"></td>
+                <td colspan="12" class="xl122" dir="RTL">
+                    <span style="mso-spacerun: yes">    </span>
+                    <font class="font5">ويعتبر توقيعنا بالإستلام، موافقة علي السعر ونتعهد بالسداد.</font>
+                </td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td colspan="14" height="21" class="xl120" dir="RTL" style="height: 16pt"></td>
+                <td class="xl71"></td>
+                <td class="xl71"></td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td colspan="4" height="21" class="xl123" style="height: 16pt">
+                    <span>     </span>Payment Options
+                </td>
+                <td *ngFor="let row of [1,1,1,1,1,1,1,1]" class="xl125">&nbsp;</td>
+                <td class="xl125" valign="top">
+                    <span style="
+              position: absolute;
+              z-index: 1;
+              margin-left: 13px;
+              margin-top: 11px;
+              right: 2rem;
+            "><img width="180" height="150" src="/assets/signature.png" v:shapes="Picture_x0020_1" /></span>
+                </td>
+                <td class="xl125">&nbsp;</td>
+                <td class="xl125">&nbsp;</td>
+                <td class="xl126">&nbsp;</td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td height="21" class="xl127" style="height: 16pt">&nbsp;</td>
+                <td *ngFor="let row of [1,1,1,1,1,1,1,1,1,1,1,1,1,1]" class="xl71"></td>
+                <td class="xl128">&nbsp;</td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td height="21" class="xl129" colspan="2" align="left" style="height: 16pt; mso-ignore: colspan">
+                    <span style="mso-spacerun: yes">   </span>Bank Transfer :
+                </td>
+                <td *ngFor="let row of [1,1,1,1,1,1,1,1,1,1,1,1,1]" class="xl71"></td>
+                <td class="xl128">&nbsp;</td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td height="21" class="xl127" style="height: 16pt">&nbsp;</td>
+                <td *ngFor="let row of [1,1,1,1,1,1,1,1,1,1,1,1,1,1]" class="xl71"></td>
+                <td class="xl128">&nbsp;</td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td colspan="2" height="21" class="xl130" style="height: 16pt">
+                    <span style="mso-spacerun: yes">    </span>Beneficiary Name
+                </td>
+                <td class="xl132">:</td>
+                <td colspan="8" class="xl133" dir="RTL">فرع شركة جست كلين للتجارة</td>
+                <td *ngFor="let row of [1,1,1,1]" class="xl71"></td>
+                <td class="xl128">&nbsp;</td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td colspan="2" height="21" class="xl135" style="height: 16pt">
+                    <span style="mso-spacerun: yes">    </span>Account Number
+                </td>
+                <td class="xl132">:</td>
+                <td colspan="8" class="xl133">611130042880007</td>
+                <td *ngFor="let row of [1,1,1,1]" class="xl71"></td>
+                <td class="xl128">&nbsp;</td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td colspan="2" height="21" class="xl130" style="height: 16pt">
+                    <span style="mso-spacerun: yes">    </span>IBAN Number
+                </td>
+                <td class="xl132">:</td>
+                <td colspan="8" class="xl133">SA5215000611130042880007</td>
+                <td *ngFor="let row of [1,1,1,1]" class="xl71"></td>
+                <td class="xl128">&nbsp;</td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td colspan="2" height="21" class="xl135" style="height: 16pt">
+                    <span style="mso-spacerun: yes">    </span>Bank
+                </td>
+                <td class="xl132">:</td>
+                <td colspan="8" class="xl133">AlBilad Bank</td>
+                <td *ngFor="let row of [1,1,1,1]" class="xl71"></td>
+                <td class="xl128">&nbsp;</td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td colspan="2" height="21" class="xl137" style="height: 16pt">
+                    <span style="mso-spacerun: yes">    </span>Currency:
+                </td>
+                <td class="xl139">:</td>
+                <td colspan="8" class="xl140">SAR</td>
+                <td *ngFor="let row of [1,1,1,1]" class="xl142"></td>
+                <td class="xl143">&nbsp;</td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td height="21" class="xl144" style="height: 16pt"></td>
+                <td *ngFor="let row of [1,1,1,1,1,1,1,1]" class="xl134"></td>
+                <td *ngFor="let row of [1,1,1,1,1,1,1]" class="xl71"></td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td height="21" class="xl144" style="height: 16pt"></td>
+                <td *ngFor="let row of [1,1,1,1,1,1,1,1]" class="xl134"></td>
+                <td *ngFor="let row of [1,1,1,1,1,1,1]" class="xl145"></td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td height="21" class="xl146" colspan="3" dir="RTL" style="height: 16pt; mso-ignore: colspan">
+                    <span style="mso-spacerun: yes"> </span>Just Clean Trading Company
+                </td>
+                <td class="xl146" dir="RTL"></td>
+                <td class="xl147" dir="RTL"></td>
+                <td class="xl147" dir="RTL"></td>
+                <td class="xl147" dir="RTL"></td>
+                <td class="xl148"></td>
+                <td *ngFor="let row of [1,1]" class="xl145"></td>
+                <td *ngFor="let row of [1,1,1,1,1]" class="xl149" dir="RTL"></td>
+                <td class="xl149" dir="RTL">
+                    <span style="mso-spacerun: yes"> </span>فرع شركة جست كلين للتجارة
+                </td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td height="21" class="xl146" colspan="2" dir="RTL" style="height: 16pt; mso-ignore: colspan">
+                    VAT 310451452400003
+                </td>
+                <td *ngFor="let row of [1,1,1,1,1]" class="xl146" dir="RTL"></td>
+                <td class="xl148"></td>
+                <td *ngFor="let row of [1,1]" class="xl145"></td>
+                <td *ngFor="let row of [1,1,1,1,1]" class="xl149" dir="RTL"></td>
+                <td class="xl149" dir="RTL">رقم التسجيل الضريبي 310451452400003</td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td height="21" class="xl147" colspan="5" dir="RTL" style="height: 16pt; mso-ignore: colspan">
+                    AlNawras King Fahd Road - Dammam - Kingdom of Saudi Arabia
+                </td>
+                <td class="xl147" dir="RTL"></td>
+                <td class="xl147" dir="RTL"></td>
+                <td class="xl148"></td>
+                <td *ngFor="let row of [1,1]" class="xl145"></td>
+                <td colspan="6" class="xl150" dir="RTL">
+                    النورس طريق الملك فهد - الدمام - المملكة العربية السعودية
+                </td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td height="21" class="xl147" colspan="2" dir="RTL" style="height: 16pt; mso-ignore: colspan">
+                    Telephone: +966138875553
+                </td>
+                <td *ngFor="let row of [1,1,1,1,1]" class="xl147" dir="RTL"></td>
+                <td class="xl148"></td>
+                <td *ngFor="let row of [1,1]" class="xl145"></td>
+                <td *ngFor="let row of [1,1,1,1,1]" class="xl150" dir="RTL"></td>
+                <td class="xl150" dir="RTL">هاتف : 966138875553+</td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td height="21" class="xl147" colspan="3" dir="RTL" style="height: 16pt; mso-ignore: colspan">
+                    Email: mellewaa@justclean.com
+                </td>
+                <td *ngFor="let row of [1,1,1,1]" class="xl147" dir="RTL"></td>
+                <td class="xl148"></td>
+                <td *ngFor="let row of [1,1]" class="xl145"></td>
+                <td *ngFor="let row of [1,1,1,1,1]" class="xl150" dir="RTL"></td>
+                <td class="xl150" dir="RTL">إيميل : mellewaa@justclean.com</td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td height="21" class="xl147" dir="RTL" style="height: 16pt"></td>
+                <td *ngFor="let row of [1,1,1,1,1,1]" class="xl147" dir="RTL"></td>
+                <td class="xl148"></td>
+                <td *ngFor="let row of [1,1]" class="xl145"></td>
+                <td *ngFor="let row of [1,1,1,1,1,1]" class="xl150" dir="RTL"></td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td height="21" class="xl147" dir="RTL" style="height: 16pt"></td>
+                <td *ngFor="let row of [1,1,1,1,1,1]" class="xl147" dir="RTL"></td>
+                <td class="xl148"></td>
+                <td *ngFor="let row of [1,1]" class="xl145"></td>
+                <td *ngFor="let row of [1,1,1,1,1,1]" class="xl150" dir="RTL"></td>
+            </tr>
+            <tr height="21" style="height: 16pt">
+                <td height="21" class="xl148" style="height: 16pt"></td>
+                <td *ngFor="let row of [1,1,1,1,1,1,1]" class="xl148"></td>
+                <td *ngFor="let row of [1,1,1,1,1,1,1,1]" class="xl145"></td>
+            </tr>
+
+            <tr height="0" style="display: none">
+                <td *ngFor="let row of [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]" width="87" style="width: 65pt"></td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div class="pagebreak"> </div>
