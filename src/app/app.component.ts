@@ -54,7 +54,7 @@ export class AppComponent implements OnInit {
 
   download(): void {
     this.appService.isLoading = true;
-    const pdfCount = Math.round(this.original.length / 50);
+    const pdfCount = Math.round(this.original.length / 50) || 1;
     for (let index = 1; index < pdfCount; index++) {
       (async () => { 
         window.print();
