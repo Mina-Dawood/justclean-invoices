@@ -56,23 +56,19 @@ export class AppComponent implements OnInit {
     this.appService.isLoading = true;
     const pdfCount = Math.round(this.original.length / 50) || 2;
     for (let index = 1; index < pdfCount; index++) {
-      (async () => { 
-        window.print();
+      window.print();
+      if (index + 1 < pdfCount) {
         this.page = index;
         this.rows = this.getRowsForDisplay();
         this.cd.detectChanges();
         this.appService.isLoading = false;
-    })();
+      }
     };
   }
 
   private getRowsForDisplay(): Array<ExcelRow> {
     return this.original.slice(this.page * 50);
   }
-
-  private delay(ms: number) {
-    return new Promise( resolve => setTimeout(resolve, ms) );
-}
 
 
   private getMappedRows(data: AOA): Array<ExcelRow> {
